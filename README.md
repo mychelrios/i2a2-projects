@@ -1,8 +1,8 @@
-Análise de dados ficais com LangChain & Ollama à partir de um arquivo CSV
+# Análise de dados ficais com LangChain & Ollama à partir de um arquivo CSV.
 
-An intelligent on-premise solution for analyzing Brazilian electronic invoices (NFe) using LangChain and Ollama 3, generating contextual questions and answers in Portuguese.
+## Solução local para análise de notas fiscais eletrônicas usando LangChain and Ollama 3, gerando questões e respostas em português.
 
-📋 Overview
+Visão geral
 This project provides an automated solution for analyzing CSV files containing Brazilian electronic invoice data (Notas Fiscais Eletrônicas - NFe). Using the power of LangChain and Ollama's Llama3 model running locally, it intelligently generates relevant questions and detailed answers based on the actual content of your invoice data.
 
 Instalação da solução
