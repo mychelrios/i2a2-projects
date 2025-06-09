@@ -1,29 +1,41 @@
-# Análise de dados ficais com LangChain & Ollama à partir de um arquivo CSV.
+# Gerador de questões em português
 
-## Solução local para análise de notas fiscais eletrônicas usando LangChain and Ollama 3, gerando questões e respostas em português.
+## Visão geral
 
-Visão geral
-This project provides an automated solution for analyzing CSV files containing Brazilian electronic invoice data (Notas Fiscais Eletrônicas - NFe). Using the power of LangChain and Ollama's Llama3 model running locally, it intelligently generates relevant questions and detailed answers based on the actual content of your invoice data.
+Solução local para análise de notas fiscais eletrônicas usando LangChain and Ollama 3, gerando questões e respostas em português.
 
-Instalação da solução
-Prerequisites
+A solução apresenta uma alternativa local para realizar uma análise de um arquivo CSV contendo dados de notas fiscais eletrônicas à partir de modelos de LLM.
 
-Install Ollama
-bash# Linux/macOS
-curl -fsSL https://ollama.ai/install.sh | sh
+Usando os modelos LangChain e Ollama Llama3 model executando localmente, ela gera questões e respostas detalhadas baseadas no conteúdo dos dados informados.
 
-# Windows: Download from https://ollama.ai/
+## Formato do arquivo de entrada:
 
-Download Llama3 Model
-bashollama pull llama3
+CHAVE DE ACESSO - Invoice access key
+VALOR NOTA FISCAL - Invoice value
+UF EMITENTE - Issuing state
+NATUREZA DA OPERAÇÃO - Operation type
+DATA EMISSÃO - Emission date
+RAZÃO SOCIAL EMITENTE - Company name
 
-Start Ollama Service
-bashollama serve
+## Instalação da solução
+
+### Pré-requisitos Windows
+
+#### Install Ollama
+
+1º passo: Baixar e instalar o executável Ollama à partir do site  https://ollama.ai/
+2º passo: Via cmd ou powershell, executar os seguintes comandos afim de iniciar o Ollama
+   
+   Download Llama3 Model
+      bash ``ollama pull llama3``
+
+   Start Ollama Service
+      bash ollama serve
 
 
-Installation
+### Clonagem do repositório com a solução
 
-Clone the repository
+Realize a clonagem do repositório contendo a solução
 bashgit clone https://github.com/yourusername/csv-invoice-analysis.git
 cd csv-invoice-analysis
 
@@ -31,14 +43,13 @@ Install Python dependencies
 bashpip install -r requirements.txt
 
 Place your CSV file
-bash# Rename your CSV file to: 202401_NFs_Header.csv
-# Or modify the script to use your filename
 
 Run the analysis
-bashpython csv_analyzer.py
+python csv_analyzer.py
 
 
-📊 Sample Output
+📊 Exemplos de questões e respostas geradas
+
 The system generates contextual questions like:
 1. PERGUNTA: Qual é o valor total das notas fiscais no arquivo?
    RESPOSTA: O valor total das notas fiscais é de R$ 25.371,18, distribuído entre 13 registros válidos.
@@ -75,12 +86,7 @@ csv_file = "your_custom_file.csv"
 📋 CSV Format Support
 The system expects Brazilian NFe CSV files with columns such as:
 
-CHAVE DE ACESSO - Invoice access key
-VALOR NOTA FISCAL - Invoice value
-UF EMITENTE - Issuing state
-NATUREZA DA OPERAÇÃO - Operation type
-DATA EMISSÃO - Emission date
-RAZÃO SOCIAL EMITENTE - Company name
+
 
 🛠️ Technical Details
 Architecture

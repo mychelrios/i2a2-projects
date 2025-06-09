@@ -3,21 +3,25 @@
   "total_registros": 565,
   "perguntas_respostas": [
     {
+      "pergunta": "Quantas empresas diferentes aparecem como emitentes?",
+      "resposta": "Aparecem 91 empresas diferentes como emitentes no arquivo."
+    },
+    {
+      "pergunta": "Qual é a distribuição temporal das emissões ao longo do período analisado?",
+      "resposta": "As notas estão concentradas no período de janeiro de 2024, com distribuição variada ao longo do mês."
+    },
+    {
       "pergunta": "Quantos registros de notas fiscais estão presentes no arquivo?",
       "resposta": "O arquivo contém 565 registros de notas fiscais eletrônicas."
     },
     {
-      "pergunta": "Qual estado (UF) aparece com mais frequência como emitente das notas fiscais?",
-      "resposta": "O estado SP é o que mais aparece como emitente, com 386 ocorrências."
+      "pergunta": "Qual é o perfil dos destinatários das notas fiscais?",
+      "resposta": "O principal destinatário é 'FUNDO NACIONAL DE DESENVOLVIMENTO DA EDUCACAO', indicando transações com órgãos públicos."
     },
     {
-      "pergunta": "Qual é o tipo de operação mais comum nas notas fiscais?",
-      "resposta": "A operação mais comum é 'RETORNO DE MATERIAL DEPOSITADO EM ARMAZEM GERAL', aparecendo 277 vezes."
-    },
-    {
-      "pergunta": "As notas fiscais se referem a que período temporal?",
-      "resposta": "Com base na análise das datas de emissão, as notas fiscais são referentes ao mês de janeiro de 2024."
+      "pergunta": "Qual é a distribuição geográfica dos emitentes por região?",
+      "resposta": "A distribuição dos principais emitentes é: {'SP': 386, 'RS': 23, 'AM': 22}."
     }
   ],
-  "timestamp": "2025-06-08 19:17:25"
+  "timestamp": "2025-06-09 13:47:33"
 }
