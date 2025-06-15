@@ -9,37 +9,37 @@ Ela utiliza ferramentas de inteligência artificial (LangChain e Ollama Llama3) 
 
 O arquivo CSV deve conter os seguintes campos, que descrevem detalhes das notas fiscais:
 
-CHAVE DE ACESSO: Identificador único da nota fiscal.
-MODELO: Tipo de documento (ex.: 55 para NF-e).
-SÉRIE: Série da nota fiscal (ex.: 001).
-NÚMERO: Número sequencial da nota.
-NATUREZA DA OPERAÇÃO: Tipo de transação (ex.: venda, devolução).
-DATA EMISSÃO: Data e hora de emissão da nota.
-CPF/CNPJ EMITENTE: CPF ou CNPJ de quem emitiu a nota.
-RAZÃO SOCIAL EMITENTE: Nome da empresa ou pessoa que emitiu a nota.
-INSCRIÇÃO ESTADUAL EMITENTE: Inscrição estadual do emitente.
-UF EMITENTE: Estado do emitente (ex.: SP, CE).
-MUNICÍPIO EMITENTE: Município do emitente.
-CNPJ DESTINATÁRIO: CPF ou CNPJ de quem recebeu a nota.
-NOME DESTINATÁRIO: Nome do destinatário.
-UF DESTINATÁRIO: Estado do destinatário.
-INDICADOR IE DESTINATÁRIO: Se o destinatário contribui com ICMS.
-DESTINO DA OPERAÇÃO: Local da transação (interna, interestadual, exterior).
-CONSUMIDOR FINAL: Indica se o destinatário é consumidor final.
-PRESENÇA DO COMPRADOR: Forma de compra (ex.: presencial, online).
-NÚMERO PRODUTO: Código do produto.
-DESCRIÇÃO DO PRODUTO/SERVIÇO: Nome do produto ou serviço.
-CÓDIGO NCM/SH: Código de classificação do produto.
-NCM/SH (TIPO DE PRODUTO): Tipo de produto segundo NCM/SH.
-CFOP: Código fiscal da operação.
-QUANTIDADE: Quantidade vendida.
-UNIDADE: Unidade de medida (ex.: unidade, kg).
-VALOR UNITÁRIO: Preço por unidade.
-VALOR TOTAL: Valor total do item.
+• CHAVE DE ACESSO: Identificador único da nota fiscal.
+• MODELO: Tipo de documento (ex.: 55 para NF-e).
+• SÉRIE: Série da nota fiscal (ex.: 001).
+• NÚMERO: Número sequencial da nota.
+• NATUREZA DA OPERAÇÃO: Tipo de transação (ex.: venda, devolução).
+• DATA EMISSÃO: Data e hora de emissão da nota.
+• CPF/CNPJ EMITENTE: CPF ou CNPJ de quem emitiu a nota.
+• RAZÃO SOCIAL EMITENTE: Nome da empresa ou pessoa que emitiu a nota.
+• INSCRIÇÃO ESTADUAL EMITENTE: Inscrição estadual do emitente.
+• UF EMITENTE: Estado do emitente (ex.: SP, CE).
+• MUNICÍPIO EMITENTE: Município do emitente.
+• CNPJ DESTINATÁRIO: CPF ou CNPJ de quem recebeu a nota.
+• NOME DESTINATÁRIO: Nome do destinatário.
+• UF DESTINATÁRIO: Estado do destinatário.
+• INDICADOR IE DESTINATÁRIO: Se o destinatário contribui com ICMS.
+• DESTINO DA OPERAÇÃO: Local da transação (interna, interestadual, exterior).
+• CONSUMIDOR FINAL: Indica se o destinatário é consumidor final.
+• PRESENÇA DO COMPRADOR: Forma de compra (ex.: presencial, online).
+• NÚMERO PRODUTO: Código do produto.
+• DESCRIÇÃO DO PRODUTO/SERVIÇO: Nome do produto ou serviço.
+• CÓDIGO NCM/SH: Código de classificação do produto.
+• NCM/SH (TIPO DE PRODUTO): Tipo de produto segundo NCM/SH.
+• CFOP: Código fiscal da operação.
+• QUANTIDADE: Quantidade vendida.
+• UNIDADE: Unidade de medida (ex.: unidade, kg).
+• VALOR UNITÁRIO: Preço por unidade.
+• VALOR TOTAL: Valor total do item.
 
 ## Instalação
 
-Siga os passos abaixo para configurar a solução no seu computador (Windows, Mac ou Linux).
+Siga os passos abaixo para configurar a solução no seu computador (Windows).
 
 1 - Instalar o Ollama:
 
@@ -48,7 +48,7 @@ Acesse https://ollama.ai, baixe e instale o executável para seu sistema operaci
 
 2 - Baixar o modelo Llama3:
 
-Abra o Prompt de Comando (Windows) ou Terminal (Mac/Linux).
+Abra o Prompt de Comando (Windows).
 Execute:ollama pull llama3
 
 3 - Iniciar o serviço Ollama:
@@ -86,7 +86,7 @@ Após a instalação, siga estas etapas para usar a solução:
 
 1 - Preparar o arquivo CSV:
 
-Coloque seu arquivo ZIP com dados de notas fiscais na pasta csv-question-generator\data\compressed.
+1.A - Deposite o arquivo ZIP no diretório csv-question-generator\data\compressed
 
 Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV. 
 Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:
@@ -98,6 +98,8 @@ Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variávei
 
 
 2 - Executar a solução:
+
+
 
 No Prompt de Comando ou Terminal, dentro da pasta csv-question-generator, execute:
    
