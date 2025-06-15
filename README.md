@@ -1,1 +1,2 @@
-Repositório contendo as soluções dos exercícios e desafios porpostos no curso I2A2.
+Repositório contendo as soluções dos exercícios e desafios propostos no curso I2A2 - Agentes Autônomos com
+Redes Generativas.

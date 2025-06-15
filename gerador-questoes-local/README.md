@@ -84,33 +84,32 @@ No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execut
 
 Após a instalação, siga estas etapas para usar a solução:
 
-1 - Preparar o arquivo CSV:
 
-1.A - Deposite o arquivo ZIP no diretório gerador-questoes-local\data\compressed
+1 - Deposite o arquivo ZIP no diretório gerador-questoes-local\data\compressed
 
-Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV. 
-Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:
+2 - Configurar as variáveis da solução CSV:
 
-   nomeArquivoCSV = "seu_arquivo.csv"  # Exemplo: "202401_NFs_Itens.csv"
-   nomeArquivoJSON = "resultado_analise.json"
+   Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV e do arquivo JSOn o qual conterá as cinco perguntas e respostas sobre os dados contidos no arquivo CSV. 
+
+   Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:
+
+   nomeArquivoCSV = "seu_arquivo.csv"           # Por padrão: "202401_NFs_Itens.csv"
+   nomeArquivoJSON = "resultado_analise.json"   # Por padrão: "202401_NFs_Itens.csv"
 
 2 - Executar a solução:
 
+   No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:
+      
+      python analise-nota-fiscal.py
+
+   A solução descompactará os arquivos CSVs contidos no arquivo ZIP, processará o arquivo CSV especificado e gerará perguntas e respostas baseadas nos dados.
+
+   As perguntas e respostas serão salvas no arquivo especificado na variável nomeArquivoJSON.
 
 
-No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:
-   
-   python analise-nota-fiscal.py
+3 - Verificar os resultados:
 
-
-A solução descompactará os arquivos CSVs contidos no arquivo ZIP, processará o arquivo CSV especificado e gerará perguntas e respostas baseadas nos dados.
-
-As perguntas e respostas serão salvas no arquivo especificado em nomeArquivoJSON.
-
-
-Verificar os resultados:
-
-Abra o arquivo resultado_analise.json para ver as perguntas e respostas geradas.
+   Abra o arquivo resultado_analise.json para ver as perguntas e respostas geradas.
 
 
 
