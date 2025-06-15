@@ -1,7 +1,12 @@
-Análise de Notas Fiscais Eletrônicas
-Visão Geral
-Esta solução permite analisar notas fiscais eletrônicas (NF-e) brasileiras armazenadas em um arquivo CSV, gerando perguntas e respostas em português. Ela utiliza ferramentas de inteligência artificial (LangChain e Ollama Llama3) que funcionam no seu computador, garantindo que seus dados permaneçam privados e sem custos de serviços na nuvem. A configuração é simplificada, com uma interface acessível em http://localhost:11434.
-Formato do Arquivo de Entrada
+# Sistema de análise de notas fiscais eletrônicas
+
+## Visão Geral
+Esta solução permite analisar notas fiscais eletrônicas (NF-e) brasileiras armazenadas em um arquivo CSV, gerando perguntas e respostas em português. 
+
+Ela utiliza ferramentas de inteligência artificial (LangChain e Ollama Llama3) que funcionam no seu computador, garantindo que seus dados permaneçam privados e sem custos de serviços na nuvem.
+
+## Formato do Arquivo de Entrada
+
 O arquivo CSV deve conter os seguintes campos, que descrevem detalhes das notas fiscais:
 
 CHAVE DE ACESSO: Identificador único da nota fiscal.
@@ -32,23 +37,21 @@ UNIDADE: Unidade de medida (ex.: unidade, kg).
 VALOR UNITÁRIO: Preço por unidade.
 VALOR TOTAL: Valor total do item.
 
-Instalação
+## Instalação
+
 Siga os passos abaixo para configurar a solução no seu computador (Windows, Mac ou Linux).
 
-Instalar o Ollama:
+1 - Instalar o Ollama:
 
 Acesse https://ollama.ai, baixe e instale o executável para seu sistema operacional.
 
 
-Baixar o modelo Llama3:
+2 - Baixar o modelo Llama3:
 
 Abra o Prompt de Comando (Windows) ou Terminal (Mac/Linux).
 Execute:ollama pull llama3
 
-
-
-
-Iniciar o serviço Ollama:
+3 - Iniciar o serviço Ollama:
 
 No mesmo Prompt de Comando ou Terminal, execute:ollama serve
 
@@ -56,7 +59,7 @@ No mesmo Prompt de Comando ou Terminal, execute:ollama serve
 Mantenha o terminal aberto durante o uso da solução.
 
 
-Clonar o repositório:
+4 - Clonar o repositório:
 
 Baixe o código da solução usando o comando abaixo (substitua yourusername pelo nome do usuário do repositório):git clone https://github.com/yourusername/csv-invoice-analysis.git
 cd csv-invoice-analysis
@@ -65,40 +68,45 @@ cd csv-invoice-analysis
 Nota: Você precisará do Git instalado. Baixe em https://git-scm.com se necessário.
 
 
-Instalar o Python:
+5 - Instalar o Python:
 
 Baixe e instale o Python (versão 3.8 ou superior) em https://www.python.org/downloads.
 Confirme a instalação com:python --version
 
 
-
-
-Instalar bibliotecas Python:
+6 - Instalar bibliotecas Python:
 
 No Prompt de Comando ou Terminal, dentro da pasta csv-invoice-analysis, execute:pip install -r requirements.txt
 
 
 
+## Utilização
 
-
-Utilização
 Após a instalação, siga estas etapas para usar a solução:
 
-Preparar o arquivo CSV:
+1 - Preparar o arquivo CSV:
 
-Coloque seu arquivo CSV com dados de notas fiscais na pasta csv-invoice-analysis.
-Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV. Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:nomeArquivoCSV = "seu_arquivo.csv"  # Exemplo: "202401_NFs_Itens.csv"
-nomeArquivoJSON = "resultado_analise.json"
+Coloque seu arquivo ZIP com dados de notas fiscais na pasta csv-question-generator\data\compressed.
 
+Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV. 
+Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:
 
-
-
-Executar a solução:
-
-No Prompt de Comando ou Terminal, dentro da pasta csv-invoice-analysis, execute:python analise-nota-fiscal.py
+   nomeArquivoCSV = "seu_arquivo.csv"  # Exemplo: "202401_NFs_Itens.csv"
+   nomeArquivoJSON = "resultado_analise.json"
 
 
-A solução processará o CSV e gerará perguntas e respostas baseadas nos dados, salvas no arquivo especificado em nomeArquivoJSON.
+
+
+2 - Executar a solução:
+
+No Prompt de Comando ou Terminal, dentro da pasta csv-question-generator, execute:
+   
+   python analise-nota-fiscal.py
+
+
+A solução descompactará os arquivos CSVs contidos no arquivo ZIP, processará o arquivo CSV especificado e gerará perguntas e respostas baseadas nos dados.
+
+As perguntas e respostas serão salvas no arquivo especificado em nomeArquivoJSON.
 
 
 Verificar os resultados:
