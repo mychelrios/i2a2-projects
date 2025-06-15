@@ -8,30 +8,26 @@ def main():
     """
 
     # Extraindo os arquivos à partir de um arquivo comprimido no formato .zip
-    diretorioOrigemZip = "csv-question-generator/data/compressed"
-    diretorioDestinoCSV = "csv-question-generator/data/csv"
-    diretorioDestinoJSON = "csv-question-generator/result" 
-    nomeArquivoCSV = "202401_NFs_Itens.csv"
-    nomeArquivoJSON = "resultado_analise.json"
+    diretorio_origem_notas_fiscais_zip = "csv-question-generator/data/compressed"
+    diretorio_destino_notas_fiscais_csv = "csv-question-generator/data/csv"
+    diretorio_destino_perguntas_respostas_json = "csv-question-generator/result" 
 
-    extract_zip_files(diretorioOrigemZip, diretorioDestinoCSV)
+    arquivo_origem_notas_fiscais_csv = "202401_NFs_Itens.csv"
+    arquivo_destino_perguntas_respostas_json = "resultado_analise.json"
+
+    extract_zip_files(diretorio_origem_notas_fiscais_zip, diretorio_destino_notas_fiscais_csv)
 
     # Instancia objeto CSVAnalyzer
     analyzer = CSVAnalyzer(model_name="llama3")
     
     # Caminho CSV
-    csv_file = f"csv-question-generator/data/csv/{nomeArquivoCSV}"
+    caminho_completo_origem_arquivo_notas_fiscais_csv = f"csv-question-generator/data/csv/{arquivo_origem_notas_fiscais_csv}"
     
-    if not os.path.exists(csv_file):
-        print(f"Arquivo não encontrado: {csv_file}")
+    if not os.path.exists(caminho_completo_origem_arquivo_notas_fiscais_csv):
+        print(f"Arquivo não encontrado: {caminho_completo_origem_arquivo_notas_fiscais_csv}")
         print("Por favor, verifique o caminho do arquivo.")
         return
-    
-    # Carrega os dados
-    df = analyzer.load_csv(csv_file)
-    if df is None:
-        return
-    
+   
     # Generate questions and answers
     print("\n" + "*"*50)
     print("GERANDO PERGUNTAS E RESPOSTAS...")
@@ -48,7 +44,7 @@ def main():
             print(f"   RESPOSTA: {qa['resposta']}")
         
         # Save results
-        analyzer.save_results(perguntas_respostas, f"{diretorioDestinoJSON}/{nomeArquivoJSON}")
+        analyzer.save_results(perguntas_respostas, f"{diretorio_destino_perguntas_respostas_json}/{arquivo_destino_perguntas_respostas_json}")
         
     else:
         print("Não foi possível gerar perguntas e respostas.")
