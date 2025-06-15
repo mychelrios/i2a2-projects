@@ -1,5 +1,5 @@
 
-from csv_analyzer import *
+from tratamento_nota_fiscal import *
 from utils import *
 
 def main():

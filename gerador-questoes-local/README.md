@@ -61,8 +61,8 @@ Mantenha o terminal aberto durante o uso da solução.
 
 4 - Clonar o repositório:
 
-Baixe o código da solução usando o comando abaixo (substitua yourusername pelo nome do usuário do repositório):git clone https://github.com/yourusername/csv-invoice-analysis.git
-cd csv-invoice-analysis
+Baixe o código da solução usando o comando abaixo (substitua yourusername pelo nome do usuário do repositório):git clone https://github.com/yourusername/gerador-questoes-local.git
+cd gerador-questoes-local
 
 
 Nota: Você precisará do Git instalado. Baixe em https://git-scm.com se necessário.
@@ -76,7 +76,7 @@ Confirme a instalação com:python --version
 
 6 - Instalar bibliotecas Python:
 
-No Prompt de Comando ou Terminal, dentro da pasta csv-invoice-analysis, execute:pip install -r requirements.txt
+No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:pip install -r requirements.txt
 
 
 
@@ -86,7 +86,7 @@ Após a instalação, siga estas etapas para usar a solução:
 
 1 - Preparar o arquivo CSV:
 
-1.A - Deposite o arquivo ZIP no diretório csv-question-generator\data\compressed
+1.A - Deposite o arquivo ZIP no diretório gerador-questoes-local\data\compressed
 
 Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV. 
 Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:
@@ -98,7 +98,7 @@ Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variávei
 
 
 
-No Prompt de Comando ou Terminal, dentro da pasta csv-question-generator, execute:
+No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:
    
    python analise-nota-fiscal.py
 
