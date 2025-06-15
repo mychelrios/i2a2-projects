@@ -94,9 +94,6 @@ Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variávei
    nomeArquivoCSV = "seu_arquivo.csv"  # Exemplo: "202401_NFs_Itens.csv"
    nomeArquivoJSON = "resultado_analise.json"
 
-
-
-
 2 - Executar a solução:
 
 
