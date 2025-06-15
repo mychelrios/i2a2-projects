@@ -1,80 +1,115 @@
-## Visão geral
+Análise de Notas Fiscais Eletrônicas
+Visão Geral
+Esta solução permite analisar notas fiscais eletrônicas (NF-e) brasileiras armazenadas em um arquivo CSV, gerando perguntas e respostas em português. Ela utiliza ferramentas de inteligência artificial (LangChain e Ollama Llama3) que funcionam no seu computador, garantindo que seus dados permaneçam privados e sem custos de serviços na nuvem. A configuração é simplificada, com uma interface acessível em http://localhost:11434.
+Formato do Arquivo de Entrada
+O arquivo CSV deve conter os seguintes campos, que descrevem detalhes das notas fiscais:
 
-A solução utiliza LangChain e Ollama Llama3 para análise local de notas fiscais eletrônicas em arquivos CSV, gerando questões e respostas em português. 
+CHAVE DE ACESSO: Identificador único da nota fiscal.
+MODELO: Tipo de documento (ex.: 55 para NF-e).
+SÉRIE: Série da nota fiscal (ex.: 001).
+NÚMERO: Número sequencial da nota.
+NATUREZA DA OPERAÇÃO: Tipo de transação (ex.: venda, devolução).
+DATA EMISSÃO: Data e hora de emissão da nota.
+CPF/CNPJ EMITENTE: CPF ou CNPJ de quem emitiu a nota.
+RAZÃO SOCIAL EMITENTE: Nome da empresa ou pessoa que emitiu a nota.
+INSCRIÇÃO ESTADUAL EMITENTE: Inscrição estadual do emitente.
+UF EMITENTE: Estado do emitente (ex.: SP, CE).
+MUNICÍPIO EMITENTE: Município do emitente.
+CNPJ DESTINATÁRIO: CPF ou CNPJ de quem recebeu a nota.
+NOME DESTINATÁRIO: Nome do destinatário.
+UF DESTINATÁRIO: Estado do destinatário.
+INDICADOR IE DESTINATÁRIO: Se o destinatário contribui com ICMS.
+DESTINO DA OPERAÇÃO: Local da transação (interna, interestadual, exterior).
+CONSUMIDOR FINAL: Indica se o destinatário é consumidor final.
+PRESENÇA DO COMPRADOR: Forma de compra (ex.: presencial, online).
+NÚMERO PRODUTO: Código do produto.
+DESCRIÇÃO DO PRODUTO/SERVIÇO: Nome do produto ou serviço.
+CÓDIGO NCM/SH: Código de classificação do produto.
+NCM/SH (TIPO DE PRODUTO): Tipo de produto segundo NCM/SH.
+CFOP: Código fiscal da operação.
+QUANTIDADE: Quantidade vendida.
+UNIDADE: Unidade de medida (ex.: unidade, kg).
+VALOR UNITÁRIO: Preço por unidade.
+VALOR TOTAL: Valor total do item.
 
-Solução para análise de notas fiscais eletrônicas gerando questões e respostas em português.
+Instalação
+Siga os passos abaixo para configurar a solução no seu computador (Windows, Mac ou Linux).
 
-Executa LLMs localmente usando LangChain and Ollama 3, garantindo privacidade de dados e economia (sem dependência de nuvem).
+Instalar o Ollama:
 
-Simplifica a configuração com gerenciamento automático de GPU/CPU e interface amigável, acessível via http://localhost:11434.
-
-## Formato do arquivo de entrada:
-
-CHAVE DE ACESSO - ID único da nota fiscal 
-MODELO - Tipo de documento fiscal SÉRIE - Série da nota fiscal 
-NÚMERO - Número sequencial da nota 
-NATUREZA DA OPERAÇÃO - Tipo da transação DATA EMISSÃO - Data e hora de emissão 
-CPF/CNPJ EMITENTE - CPF ou CNPJ do emitente 
-RAZÃO SOCIAL EMITENTE - Nome do emitente 
-INSCRIÇÃO ESTADUAL EMITENTE - Inscrição estadual do emitente 
-UF EMITENTE - Estado do emitente 
-MUNICÍPIO EMITENTE - Município do emitente 
-CNPJ DESTINATÁRIO - CPF ou CNPJ do destinatário 
-NOME DESTINATÁRIO - Nome do destinatário 
-UF DESTINATÁRIO - Estado do destinatário 
-INDICADOR IE DESTINATÁRIO - Status de contribuinte 
-ICMS do destinatário DESTINO DA OPERAÇÃO - Local da operação (interna, interestadual, exterior) 
-CONSUMIDOR FINAL - Indica se é consumidor final 
-PRESENÇA DO COMPRADOR - Forma de compra (presencial, online) 
-NÚMERO PRODUTO - Código do produto 
-DESCRIÇÃO DO PRODUTO/SERVIÇO - Nome do produto ou serviço 
-CÓDIGO NCM/SH - Código de classificação do produto 
-NCM/SH (TIPO DE PRODUTO) - Tipo de produto pelo NCM/SH 
-CFOP - Código fiscal da operação 
-QUANTIDADE - Quantidade vendida 
-UNIDADE - Unidade de medida 
-VALOR UNITÁRIO - Preço por unidade 
-VALOR TOTAL - Valor total do item
-
-## Instalação da solução
-
-1º passo: Baixar e instalar o executável Ollama à partir do site  https://ollama.ai/
-2º passo: Via cmd ou powershell, executar os seguintes comandos
-   
-   <!-- Download o modelo Llama3  -->
-      cmd ollama pull llama3
-
-   <!-- Iniciar o serviço Ollama -->
-      cmd ollama serve
-
-### Clonagem do repositório com a solução
-
-3º passo: Realize a clonagem do repositório contendo a solução
-      cmd   clone https://github.com/yourusername/csv-invoice-analysis.git
-      cmd   cd csv-invoice-analysis
-
-4º passo: Baixar e instalar o executável pyhon à partir da versão em diante
-      https://www.python.org/downloads/
-
-5º passo: Instalar as bibliotecas python à partir do arquivo requirements.txt 
-      cmd   pip install -r requirements.txt
+Acesse https://ollama.ai, baixe e instale o executável para seu sistema operacional.
 
 
-## Utilização da solução
+Baixar o modelo Llama3:
 
-Após instalada a solução, o utilisador deverá executar 
-
-
-deverá ajustar a solução para a sua necessidade.
-
-1 - Nome do arquivo CSV: a variável nomeArquivo presente no arquivo analise-nota-fiscal para indicar o nome do arquivo CSV que conterá os dados a serem utilizados para a limentar o modelo de perguntas e respostas.
-
-    nomeArquivoCSV = "202401_NFs_Itens.csv"
-    nomeArquivoJSON = "resultado_analise.json"
+Abra o Prompt de Comando (Windows) ou Terminal (Mac/Linux).
+Execute:ollama pull llama3
 
 
-## Limitações da solução atual
 
-A solução atual compreende que apenas um arquivos CSV será passado como fonte de dados para a alimentação do modelo.
 
+Iniciar o serviço Ollama:
+
+No mesmo Prompt de Comando ou Terminal, execute:ollama serve
+
+
+Mantenha o terminal aberto durante o uso da solução.
+
+
+Clonar o repositório:
+
+Baixe o código da solução usando o comando abaixo (substitua yourusername pelo nome do usuário do repositório):git clone https://github.com/yourusername/csv-invoice-analysis.git
+cd csv-invoice-analysis
+
+
+Nota: Você precisará do Git instalado. Baixe em https://git-scm.com se necessário.
+
+
+Instalar o Python:
+
+Baixe e instale o Python (versão 3.8 ou superior) em https://www.python.org/downloads.
+Confirme a instalação com:python --version
+
+
+
+
+Instalar bibliotecas Python:
+
+No Prompt de Comando ou Terminal, dentro da pasta csv-invoice-analysis, execute:pip install -r requirements.txt
+
+
+
+
+
+Utilização
+Após a instalação, siga estas etapas para usar a solução:
+
+Preparar o arquivo CSV:
+
+Coloque seu arquivo CSV com dados de notas fiscais na pasta csv-invoice-analysis.
+Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV. Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:nomeArquivoCSV = "seu_arquivo.csv"  # Exemplo: "202401_NFs_Itens.csv"
+nomeArquivoJSON = "resultado_analise.json"
+
+
+
+
+Executar a solução:
+
+No Prompt de Comando ou Terminal, dentro da pasta csv-invoice-analysis, execute:python analise-nota-fiscal.py
+
+
+A solução processará o CSV e gerará perguntas e respostas baseadas nos dados, salvas no arquivo especificado em nomeArquivoJSON.
+
+
+Verificar os resultados:
+
+Abra o arquivo resultado_analise.json para ver as perguntas e respostas geradas.
+
+
+
+Limitações
+
+A solução aceita apenas um arquivo CSV como fonte de dados.
+O arquivo CSV deve seguir o formato especificado na seção "Formato do Arquivo de Entrada".
+Requer um computador com recursos suficientes para executar o modelo Llama3 (recomenda-se 8 GB de RAM e GPU, se disponível).
 
