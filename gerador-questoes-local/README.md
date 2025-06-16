@@ -49,11 +49,14 @@ Acesse https://ollama.ai, baixe e instale o executável para seu sistema operaci
 2 - Baixar o modelo Llama3:
 
 Abra o Prompt de Comando (Windows).
-Execute:ollama pull llama3
+
+Execute:    ollama pull llama3
 
 3 - Iniciar o serviço Ollama:
 
-No mesmo Prompt de Comando ou Terminal, execute:ollama serve
+No mesmo Prompt de Comando ou Terminal.
+
+Execute:   ollama serve
 
 
 Mantenha o terminal aberto durante o uso da solução.
