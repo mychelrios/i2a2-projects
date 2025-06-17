@@ -5,7 +5,7 @@ from langchain.prompts import PromptTemplate
 import cmd
 
 class ProcessadorConsultasCSV:
-    def __init__(self, csv_path: str, model_name: str = "mistral"):
+    def __init__(self, csv_path: str, model_name: str = "llama3"):
         """
         Inicializa o processador de consultas CSV.
 

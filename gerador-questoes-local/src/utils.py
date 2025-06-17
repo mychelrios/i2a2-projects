@@ -1,47 +1,89 @@
-import zipfile
 import os
+import zipfile
 from pathlib import Path
 
-def extract_zip_files(source_dir: str, dest_dir: str):
+def display_banner_simple_green():
     """
-    Extrai todos os arquivos zip da pasta de origem para a pasta de destino
+    Simple ASCII art banner in green color.
     """
-    # Converte strings para objetos Path
-    source_dir = Path(source_dir)
-    dest_dir = Path(dest_dir)
+    GREEN = '\033[92m'
+    RESET = '\033[0m'
     
-    # Cria o diretório de destino se não existir
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    
-    # Verifica se o diretório de origem existe
-    if not source_dir.exists():
-        print(f"Erro: Diretório de origem '{source_dir}' não existe.")
-        return
-    
-    # Encontra todos os arquivos zip no diretório de origem
-    zip_files = list(source_dir.glob("*.zip"))
-    
-    if not zip_files:
-        print(f"Nenhum arquivo zip encontrado em '{source_dir}'")
-        return
-    
-    # Extrai cada arquivo zip
-    for zip_path in zip_files:
-        try:
-            print(f"Extraindo {zip_path.name}...")
-            
-            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-                # Extrai todo o conteúdo para o diretório de destino
-                zip_ref.extractall(dest_dir)
-                
-            print(f"✓ {zip_path.name} extraído com sucesso")
-            
-        except zipfile.BadZipFile:
-            print(f"✗ Erro: {zip_path.name} não é um arquivo zip válido")
-        except Exception as e:
-            print(f"✗ Erro ao extrair {zip_path.name}: {str(e)}")
-    
-    print(f"\nExtração concluída. Arquivos extraídos para: {dest_dir}")
+    banner = f"""{GREEN}
+ ___  ____    _    ____  
+|_ _||___ \  / \  |___ \ 
+ | |   __) |/ _ \   __) |
+ | |  / __// ___ \ / __/ 
+|___|_____/_/   \_\_____|
+                        
+      challenge 2       
+{RESET}"""
+    print(banner)
 
+def extract_zip_files(zip_path: str, destination_dir: str) -> None:
+    """
+    Extrai arquivos de um .zip para o diretório de destino.
+    
+    Args:
+        zip_path (str): Caminho do arquivo .zip.
+        destination_dir (str): Diretório de destino para os arquivos extraídos.
+    """
+    try:
+        os.makedirs(destination_dir, exist_ok=True)
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(destination_dir)
+    except Exception as e:
+        raise ValueError(f"Erro ao extrair o arquivo .zip: {e}")
+
+def get_csv_path() -> str:
+    """
+    Solicita ao usuário o caminho do arquivo .zip e o nome do arquivo .csv,
+    extrai o .zip e verifica a existência do .csv.
+
+    Returns:
+        str: Caminho completo do arquivo .csv extraído.
+
+    Raises:
+        ValueError: Se o arquivo .zip ou .csv não for encontrado ou for inválido.
+    """
+    try:
+        
+        # Apresenta display
+        display_banner_simple_green()
+
+        # Solicitar o caminho do arquivo .zip
+        zip_path = input("Digite o caminho completo do arquivo .zip: ").strip()
+        if not zip_path.lower().endswith('.zip'):
+            raise ValueError("O arquivo fornecido não é um .zip válido.")
+        if not os.path.exists(zip_path):
+            raise ValueError(f"Arquivo .zip não encontrado: {zip_path}")
+
+        # Solicitar o nome do arquivo .csv
+        csv_name = input("Digite o nome do arquivo .csv a ser processado (ex: 202401_NFs_Itens.csv): ").strip()
+        if not csv_name.lower().endswith('.csv'):
+            csv_name += '.csv'  # Adicionar extensão se não fornecida
+
+        # Definir diretório de destino para extração
+        base_dir = "gerador-questoes-local/data"
+        destination_dir = os.path.join(base_dir, "csv")
+        os.makedirs(destination_dir, exist_ok=True)
+
+        # Extrair o arquivo .zip
+        print(f"Extraindo {zip_path} para {destination_dir}...")
+        extract_zip_files(zip_path, destination_dir)
+
+        # Construir o caminho completo do arquivo .csv
+        csv_path = os.path.join(destination_dir, csv_name)
+
+        # Verificar se o arquivo .csv existe
+        if not os.path.exists(csv_path):
+            raise ValueError(f"Arquivo .csv não encontrado: {csv_path}")
+
+        print(f"Arquivo .csv encontrado: {csv_path}")
+        return csv_path
+
+    except Exception as e:
+        raise ValueError(f"Erro ao processar entrada: {e}")
+    
 if __name__ == "__main__":
     pass
