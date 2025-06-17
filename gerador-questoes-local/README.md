@@ -64,7 +64,10 @@ Mantenha o terminal aberto durante o uso da solução.
 
 4 - Clonar o repositório:
 
-Baixe o código da solução usando o comando abaixo (substitua yourusername pelo nome do usuário do repositório):git clone https://github.com/yourusername/gerador-questoes-local.git
+Baixe o código da solução usando o comando abaixo:
+
+git clone https://github.com/mychelrios/i2a2-projects.git
+
 cd gerador-questoes-local
 
 
@@ -79,8 +82,9 @@ Confirme a instalação com:python --version
 
 6 - Instalar bibliotecas Python:
 
-No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:pip install -r requirements.txt
+No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:
 
+pip install -r requirements.txt
 
 
 ## Utilização
