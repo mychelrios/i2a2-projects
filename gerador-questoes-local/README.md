@@ -1,9 +1,9 @@
-# Sistema de análise de notas fiscais eletrônicas
+# Sistema Interativo de Consultas à Notas Fiscais
 
 ## Visão Geral
-Esta solução permite analisar notas fiscais eletrônicas (NF-e) brasileiras armazenadas em um arquivo CSV, gerando perguntas e respostas em português. 
+Esta solução permite a consulta de notas fiscais eletrônicas (NF-e) brasileiras de modo interativo na lingua portuguesa. 
 
-Ela utiliza ferramentas de inteligência artificial (LangChain e Ollama Llama3) que funcionam no seu computador, garantindo que seus dados permaneçam privados e sem custos de serviços na nuvem.
+Ela utiliza ferramentas de inteligência artificial que funcionam no seu computador, garantindo que seus dados permaneçam privados e sem custos de serviços na nuvem.
 
 ## Formato do Arquivo de Entrada
 
@@ -45,40 +45,37 @@ Siga os passos abaixo para configurar a solução no seu computador (Windows).
 
 Acesse https://ollama.ai, baixe e instale o executável para seu sistema operacional.
 
-
 2 - Baixar o modelo Llama3:
 
-Abra o Prompt de Comando (Windows).
+Abra o Prompt de Comando (Windows) e execute:
 
-Execute:    ollama pull llama3
+cmd    ollama pull llama3
 
 3 - Iniciar o serviço Ollama:
 
-No mesmo Prompt de Comando ou Terminal.
+No mesmo Prompt execute:
 
-Execute:   ollama serve
+cmd   ollama serve
 
+IMPORTANTE: Mantenha o terminal aberto durante o uso da solução.
 
-Mantenha o terminal aberto durante o uso da solução.
+4 Instalar o git
 
+   Baixe em https://git-scm.com se necessário.
 
-4 - Clonar o repositório:
+5 - Clonar o repositório:
 
 Baixe o código da solução usando o comando abaixo:
 
 git clone https://github.com/mychelrios/i2a2-projects.git
 
-cd gerador-questoes-local
-
-
-Nota: Você precisará do Git instalado. Baixe em https://git-scm.com se necessário.
-
-
 5 - Instalar o Python:
 
 Baixe e instale o Python (versão 3.8 ou superior) em https://www.python.org/downloads.
-Confirme a instalação com:python --version
 
+Confirme a instalação 
+
+cmd python --version
 
 6 - Instalar bibliotecas Python:
 
@@ -86,39 +83,29 @@ No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execut
 
 pip install -r requirements.txt
 
-
 ## Utilização
 
-Após a instalação, siga estas etapas para usar a solução:
+Após a instalação, siga estas etapas para executar a solução:
 
+1 - Execute o arquivo analise_nota_fiscal.py localizado na pasta gerador-questoes-local\src
 
-1 - Deposite o arquivo ZIP no diretório gerador-questoes-local\data\compressed
+   cmd python.exe analise_nota_fiscal.py
 
-2 - Configurar as variáveis da solução CSV:
+   A seguinte tela de apresentação será apresentada e o programa irá requerer a entrada do caminho completo para o arquivo .ZIP contendo os arquivos CSV
 
-   Edite o arquivo analise-nota-fiscal.py para especificar o nome do seu arquivo CSV e do arquivo JSOn o qual conterá as cinco perguntas e respostas sobre os dados contidos no arquivo CSV. 
+![alt text](image-1.png)
 
-   Abra o arquivo em um editor de texto (ex.: Bloco de Notas) e altere as variáveis:
+   Informe o caminho completo do arquivo .zip a ser descompactado e tecle Enter
 
-   nomeArquivoCSV = "seu_arquivo.csv"           # Por padrão: "202401_NFs_Itens.csv"
-   nomeArquivoJSON = "resultado_analise.json"   # Por padrão: "202401_NFs_Itens.csv"
+![alt text](image.png)
+   
+   Agora informe o nome do arquivo .CSV contendo os dados das notas fiscais.
 
-2 - Executar a solução:
+![alt text](image-2.png)
 
-   No Prompt de Comando ou Terminal, dentro da pasta gerador-questoes-local, execute:
-      
-      python analise-nota-fiscal.py
+   A solução irá carregar o arquivo informado e irá disponibilizar o propt interativo para receber e responder aos questionamentos sobre os dados contidos no CSV.
 
-   A solução descompactará os arquivos CSVs contidos no arquivo ZIP, processará o arquivo CSV especificado e gerará perguntas e respostas baseadas nos dados.
-
-   As perguntas e respostas serão salvas no arquivo especificado na variável nomeArquivoJSON.
-
-
-3 - Verificar os resultados:
-
-   Abra o arquivo resultado_analise.json para ver as perguntas e respostas geradas.
-
-
+Para  finalizar a interação com a solução, basta digitar sair. Bom uso ! 
 
 ## Limitações
 
