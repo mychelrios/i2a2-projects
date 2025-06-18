@@ -93,15 +93,15 @@ Após a instalação, siga estas etapas para executar a solução:
 
    A seguinte tela de apresentação será apresentada e o programa irá requerer a entrada do caminho completo para o arquivo .ZIP contendo os arquivos CSV
 
-![alt text](image-1.png)
+![alt text](gerador-questoes-local\img\image-1.png)
 
    Informe o caminho completo do arquivo .zip a ser descompactado e tecle Enter
 
-![alt text](image.png)
+![alt text](gerador-questoes-local\img\image.png)
    
    Agora informe o nome do arquivo .CSV contendo os dados das notas fiscais.
 
-![alt text](image-2.png)
+![alt text](gerador-questoes-local\img\image-2.png)
 
    A solução irá carregar o arquivo informado e irá disponibilizar o propt interativo para receber e responder aos questionamentos sobre os dados contidos no CSV.
 
